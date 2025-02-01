@@ -206,11 +206,11 @@ export default function LoginPage() {
           </h1>
 
           <Input
-            value={credentials.email}
+            value={credentials.name}
             onChange={(e) =>
               setCredentials((prev) => ({
                 ...prev,
-                email: e.target.value,
+                name: e.target.value,
               }))
             }
             type="text"
