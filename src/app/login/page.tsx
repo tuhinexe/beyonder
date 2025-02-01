@@ -61,7 +61,7 @@ export default function LoginPage() {
           localStorage.setItem("user", JSON.stringify(data));
         }
         dispatch(setUser(data));
-        router.push("/dashboard");
+        router.push("/");
       }
     } catch (error) {
       console.error(error);
@@ -154,7 +154,7 @@ export default function LoginPage() {
           localStorage.setItem("user", JSON.stringify(data));
         }
         dispatch(setUser(data));
-        router.push("/dashboard");
+        router.push("/");
       } else {
         return toast.error("Email not verified. Please verify your email");
       }

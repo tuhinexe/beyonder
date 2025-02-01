@@ -46,7 +46,7 @@ const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
         } else {
           console.log("User is not signed in");
 
-          router.push("/");
+          router.push("/login");
         }
       });
     }
