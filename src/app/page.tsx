@@ -4,6 +4,8 @@ import Navbar from "@/components/Navbar";
 import TitleTexts from "@/components/UI/TitleTexts";
 import { Image } from "@heroui/react";
 
+import { motion } from "framer-motion";
+
 export default function Home() {
   return (
     <div className="h-screen ">
@@ -22,12 +24,17 @@ export default function Home() {
           </div>
 
           <div className="md:w-1/2 mt-10 md:mt-0">
-            <Image
-              // src="https://sitegpt.ai/images/tools/ai-chatbot-name-generator.png"
-              src="https://i.imgur.com/mIOQ5Fk.png"
-              alt="Chatbot"
-              className="w-full h-full"
-            />
+            <motion.div
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 2, repeat: Infinity }}
+              className="flex flex-col items-center"
+            >
+              <Image
+                src="https://i.imgur.com/mIOQ5Fk.png"
+                alt="Chatbot Illustration"
+                className="w-full h-full"
+              />
+            </motion.div>
           </div>
         </div>
       </div>

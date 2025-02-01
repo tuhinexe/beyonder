@@ -6,6 +6,7 @@ import {
 } from "next/font/google";
 import "./globals.css";
 import Providers from "@/components/Providers";
+import { Toaster } from "react-hot-toast";
 
 const poppins = Poppins({
   weight: "400",
@@ -36,6 +37,18 @@ export default function RootLayout({
         className={`${poppins.variable} ${cursive.variable}  antialiased max-h-screen overflow-hidden font-primary`}
       >
         <Providers>{children}</Providers>
+        <Toaster
+          position="top-right"
+          reverseOrder={false}
+          gutter={8}
+          containerClassName=""
+          containerStyle={{}}
+          toastOptions={{
+            success: {
+              duration: 4000,
+            },
+          }}
+        />
       </body>
     </html>
   );

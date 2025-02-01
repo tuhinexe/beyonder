@@ -8,7 +8,7 @@ const TitleTexts = (props: Props) => {
   return (
     <div className="text-5xl flex flex-col font-bold text-gray-900">
       <div className="flex  gap-2">
-        Make a
+        Make a successful
         <div className="relative flex gap-2">
           <p className="absolute bottom-12 left-4 font-cursive font-medium text-primary">
             brand

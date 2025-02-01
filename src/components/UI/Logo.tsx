@@ -26,7 +26,7 @@ const Logo = (props: Props) => {
           color: "transparent",
         }}
         transition={{
-          duration: 4, // Slightly longer duration for 3 colors
+          duration: 4,
           repeat: Infinity,
           repeatType: "reverse",
           ease: "linear",
