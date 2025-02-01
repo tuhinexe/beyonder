@@ -7,6 +7,8 @@ import {
 import "./globals.css";
 import Providers from "@/components/Providers";
 import { Toaster } from "react-hot-toast";
+import Head from "next/head";
+import Script from "next/script";
 
 const poppins = Poppins({
   weight: "400",
@@ -33,6 +35,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Script src="/chatbot.js" crossOrigin="anonymous"></Script>
       <body
         className={`${poppins.variable} ${cursive.variable}  antialiased max-h-screen overflow-hidden font-primary`}
       >

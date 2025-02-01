@@ -28,6 +28,7 @@ import { useWindowSize } from "react-use";
 import Confetti from "react-confetti";
 import ScrapingProgress from "@/components/ScrapingProgress";
 import DashboardSidebar from "@/components/DashboardSidebar";
+import Chatbot from "@/components/Chatbot";
 
 const Dashboard = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -116,6 +117,7 @@ const Dashboard = () => {
   };
   return (
     <div className="min-h-screen w-full overflow-hidden flex bg-gray-100">
+      {/* <Chatbot /> */}
       <DashboardSidebar
         isSidebarOpen={isSidebarOpen}
         onClose={(value) => setIsSidebarOpen(value)}
@@ -146,13 +148,31 @@ const Dashboard = () => {
 
         <div className="flex-1 p-4 ">
           <div className="bg-white p-4 rounded-lg shadow-md w-full overflow-x-hidden">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="text-lg p-1 bg-gray-100 text-primary border-2 border-primary w-fit rounded-lg font-bold"
-            >
-              <FaChartBar size={20} className="inline-block" /> Insight
-            </motion.div>
+            <div className="flex w-full justify-between">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="text-lg p-1 bg-gray-100 text-primary border-2 border-primary w-fit rounded-lg font-bold"
+              >
+                <div>
+                  <FaChartBar size={20} className="inline-block" /> Insight
+                </div>
+              </motion.div>
+              <div>
+                <Button
+                  color="primary"
+                  onPress={() => {
+                    onOpen();
+                    toast(
+                      "Adding another company removes the current company data"
+                    );
+                  }}
+                  startContent={<FaPlus />}
+                >
+                  Add Another
+                </Button>
+              </div>
+            </div>
             {currentOrg ? (
               <ScrapingProgress />
             ) : (
@@ -211,6 +231,7 @@ const Dashboard = () => {
                     variant="bordered"
                   />
                   <Input
+                    isRequired
                     value={orgData.description}
                     onChange={(e) =>
                       setOrgData({ ...orgData, description: e.target.value })

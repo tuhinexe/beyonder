@@ -9,6 +9,7 @@ import { FaBars, FaPlus, FaTimes } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { motion } from "framer-motion";
 import { MdOutlineIntegrationInstructions } from "react-icons/md";
+import ChatbotIntegration from "@/components/Integration";
 
 type Props = {};
 
@@ -20,7 +21,7 @@ const Integration = (props: Props) => {
     setIsSidebarOpen(!isSidebarOpen);
   };
   return (
-    <div className="min-h-screen flex bg-gray-100">
+    <div className="min-h-screen flex bg-gray-100 overflow-hidden w-full">
       <DashboardSidebar
         isSidebarOpen={isSidebarOpen}
         onClose={(value) => setIsSidebarOpen(value)}
@@ -63,7 +64,9 @@ const Integration = (props: Props) => {
               Integration
             </motion.div>
             {currentOrg ? (
-              <div>Hello</div>
+              <div className="w-full">
+                <ChatbotIntegration />
+              </div>
             ) : (
               <div className="flex flex-col gap-4 items-center justify-center h-96">
                 <p className="text-gray-600">
