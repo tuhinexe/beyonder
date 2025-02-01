@@ -29,6 +29,7 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [credentials, setCredentials] = useState({
+    name: "",
     email: "",
     password: "",
     confirmPassword: "",
@@ -72,13 +73,17 @@ export default function LoginPage() {
   const handleSignup = async (e: any) => {
     setLoading(true);
     try {
-      const { email, password, confirmPassword } = credentials;
+      const { name, email, password, confirmPassword } = credentials;
 
       console.log(email, password);
 
-      if (!email || !password) {
+      if (!email || !password || !name || !confirmPassword) {
         toast.error("Please fill in all fields");
         return;
+      }
+
+      if (name === "" || name.length < 3) {
+        return toast.error("Name must be at least 3 characters long");
       }
 
       if (password.length < 6) {
@@ -101,6 +106,7 @@ export default function LoginPage() {
           email: "",
           password: "",
           confirmPassword: "",
+          name: "",
         });
       }
 
@@ -198,6 +204,19 @@ export default function LoginPage() {
           <h1 className="text-3xl font-bold text-center text-primary mb-6">
             {isLogin ? "Welcome Back" : "Create an Account"}
           </h1>
+
+          <Input
+            value={credentials.email}
+            onChange={(e) =>
+              setCredentials((prev) => ({
+                ...prev,
+                email: e.target.value,
+              }))
+            }
+            type="text"
+            placeholder="Name"
+            className="mb-4 outline-none border-none"
+          />
 
           <Input
             value={credentials.email}
@@ -309,6 +328,7 @@ export default function LoginPage() {
                   email: "",
                   password: "",
                   confirmPassword: "",
+                  name: "",
                 });
               }}
               className="text-primary hover:underline focus:outline-none"
