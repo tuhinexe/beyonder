@@ -135,8 +135,7 @@ export default function ChatbotIntegration() {
             <div className="space-y-4">
               <Button
                 onPress={() => {
-                  // Redirect to admin panel
-                  window.location.href = "/admin";
+                  setIsIntegrationSuccessful(null);
                 }}
                 className="w-full bg-primary text-white hover:bg-secondary"
               >
