@@ -24,6 +24,7 @@ import { RiChatAiFill, RiChatSmileAiFill } from "react-icons/ri";
 import { useSelector } from "react-redux";
 
 export default function LoginPage() {
+  const router = useRouter();
   const { user } = useSelector(userSelector);
   const [isLogin, setIsLogin] = useState(true);
   const [loading, setLoading] = useState(false);
@@ -35,7 +36,6 @@ export default function LoginPage() {
     confirmPassword: "",
   });
   const dispatch = useAppDispatch();
-  const router = useRouter();
 
   useEffect(() => {
     if (user) {

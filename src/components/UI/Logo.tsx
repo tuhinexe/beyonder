@@ -31,7 +31,7 @@ const Logo = (props: Props) => {
           repeatType: "reverse",
           ease: "linear",
         }}
-        className={twMerge("text-primary", props.className)}
+        className={twMerge("text-primary lead", props.className)}
       >
         {props.withIcon && <RiChatSmileAiFill className=" text-primary" />}
         Beyonder

@@ -2,7 +2,7 @@
 
 import { auth } from "@/firebase/config";
 import useAppDispatch from "@/hooks/useAppDispatch";
-import { setUser } from "@/store/slices/userSlice";
+import { setCurrentOrg, setUser } from "@/store/slices/userSlice";
 
 import { getAuth } from "firebase/auth";
 import { useRouter } from "next/navigation";
@@ -13,15 +13,20 @@ const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const dispatch = useAppDispatch();
+  const router = useRouter();
   useEffect(() => {
     if (typeof window === "undefined") return;
     const user = localStorage.getItem("user");
+    const currentOrg = localStorage.getItem("currentOrg");
     console.log(user);
 
     if (user) {
       console.log("User is signed in");
       console.log(user);
       dispatch(setUser(JSON.parse(user)));
+      if (currentOrg) {
+        dispatch(setCurrentOrg(JSON.parse(currentOrg)));
+      }
     } else {
       console.log("User is not signed in");
 
@@ -40,7 +45,7 @@ const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
           dispatch(setUser(data));
         } else {
           console.log("User is not signed in");
-          const router = useRouter();
+
           router.push("/login");
         }
       });

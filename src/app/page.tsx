@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <div className="h-screen ">
       <Navbar />
-      <div className="container mx-auto px-4 py-16 h-full">
+      <div className="container mx-auto px-4 py-16 h-full overflow-y-scroll md:overflow-hidden">
         <div className="flex flex-col md:flex-row items-center justify-between md:h-[85%]">
           <div className="md:w-1/2 space-y-6 flex flex-col">
             <TitleTexts />
@@ -23,7 +23,7 @@ export default function Home() {
             </button>
           </div>
 
-          <div className="md:w-1/2 mt-10 md:mt-0">
+          <div className="md:w-1/2  md:mt-0">
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
