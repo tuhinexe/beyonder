@@ -205,18 +205,20 @@ export default function LoginPage() {
             {isLogin ? "Welcome Back" : "Create an Account"}
           </h1>
 
-          <Input
-            value={credentials.name}
-            onChange={(e) =>
-              setCredentials((prev) => ({
-                ...prev,
-                name: e.target.value,
-              }))
-            }
-            type="text"
-            placeholder="Name"
-            className="mb-4 outline-none border-none"
-          />
+          {!isLogin && (
+            <Input
+              value={credentials.name}
+              onChange={(e) =>
+                setCredentials((prev) => ({
+                  ...prev,
+                  name: e.target.value,
+                }))
+              }
+              type="text"
+              placeholder="Name"
+              className="mb-4 outline-none border-none"
+            />
+          )}
 
           <Input
             value={credentials.email}
