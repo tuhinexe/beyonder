@@ -11,7 +11,7 @@ chatbotButton.style.bottom = "100px";
 chatbotButton.style.right = "70px";
 chatbotButton.style.width = "50px";
 chatbotButton.style.height = "50px";
-chatbotButton.style.backgroundColor = "#6D28D9"; // Primary color
+chatbotButton.style.backgroundColor = "#6D28D9";
 chatbotButton.style.color = "white";
 chatbotButton.style.border = "none";
 chatbotButton.style.borderRadius = "50%";
@@ -34,7 +34,7 @@ chatbotContainer.style.backgroundColor = "white";
 chatbotContainer.style.border = "1px solid #ccc";
 chatbotContainer.style.borderRadius = "8px";
 chatbotContainer.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
-chatbotContainer.style.display = "none"; // Hidden by default
+chatbotContainer.style.display = "none";
 document.body.appendChild(chatbotContainer);
 
 // Chatbot UI
@@ -48,7 +48,6 @@ chatbotContainer.innerHTML = `
   </div>
 `;
 
-// Toggle chatbot visibility
 chatbotButton.addEventListener("click", () => {
   if (chatbotContainer.style.display === "none") {
     chatbotContainer.style.display = "block";
@@ -57,18 +56,15 @@ chatbotButton.addEventListener("click", () => {
   }
 });
 
-// Chatbot logic
 const input = document.getElementById("chatbot-input");
 input.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
     const message = e.target.value;
     e.target.value = "";
 
-    // Display user message
     const messages = document.getElementById("chatbot-messages");
     messages.innerHTML += `<div style="text-align: right; margin-bottom: 8px;">${message}</div>`;
 
-    // Send message to your chatbot API
     fetch("/api/chat", {
       method: "POST",
       headers: {
@@ -79,7 +75,6 @@ input.addEventListener("keypress", (e) => {
       .then((response) => response.json())
       .then((data) => {
         if (data.success) {
-          // Display bot response
           messages.innerHTML += `<div style="text-align: left; margin-bottom: 8px;">${data.reply}</div>`;
         }
       });

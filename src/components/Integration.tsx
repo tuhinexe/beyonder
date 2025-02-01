@@ -87,7 +87,7 @@ export default function ChatbotIntegration() {
                     lang="html"
                     className="text-wrap text-xs w-40 overflow-x-auto md:w-auto"
                   >
-                    {`<script src="https://example.com/chatbot.js"></script>`}
+                    {`<script src="https://beyonder-chat.vercel.app/chatbot.js"></script>`}
                   </Code>
 
                   <Button
@@ -95,7 +95,7 @@ export default function ChatbotIntegration() {
                     variant="bordered"
                     onPress={() => {
                       navigator.clipboard.writeText(
-                        `<script src="https://example.com/chatbot.js"></script>`
+                        `<script src="https://beyonder-chat.vercel.app/chatbot.js"></script>`
                       );
                       toast.success("Copied to clipboard");
                     }}
