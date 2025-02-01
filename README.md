@@ -1,36 +1,160 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
 
-First, run the development server:
+# Beyonder - Chatbot Integration Platform
+![image](https://github.com/user-attachments/assets/244de4b1-ec18-4395-8344-7af2d6618455)
 
+
+[LIVE-LINK](https://beyonder-chat.vercel.app/)
+
+Beyonder is a powerful platform that allows businesses to easily integrate AI-powered chatbots into their websites. The platform provides a seamless onboarding experience, website scraping for chatbot training, and real-time chatbot integration and testing.
+
+## Features
+
+### User Onboarding:
+
+- User registration with email/password or Google OAuth.
+
+- Email verification for secure signups.
+
+### Organization Setup:
+
+- Add company details (name, website URL, description).
+
+- Auto-fetch meta descriptions from the website URL.
+
+
+### Scraping Progress:
+
+- View scraped data chunks for each webpage.
+
+### Chatbot Integration:
+
+- Test the chatbot on the client’s website.
+
+- Provide easy-to-follow instructions for integration.
+
+- Test the integration and display success/failure UIs.
+
+### Chatbot Testing:
+
+- A floating chatbot button on the client’s website.
+
+- Interactive chatbot UI for real-time conversations.
+
+
+## Tech Stack
+
+### Frontend:
+
+- Next.js (App Router)
+
+- Tailwind CSS
+
+- Framer Motion (for animations)
+
+- React Icons
+- HeroUI
+- Firebase
+
+### Backend:
+
+- Next.js API Routes
+
+- Cheerio (for web scraping)
+
+- OpenAI API (for chatbot responses)
+
+### Deployment:
+
+- Vercel (for hosting)
+
+- GitHub (for version control)
+
+## Setup Instructions
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+1. Clone the Repository
+git clone https://github.com/tuhinexe/beyonder.git
+
+cd Beyonder
+
+2. Install Dependencies
+
+npm install
 ```
+3. Set Up Environment Variables
+Create a .env.local file in the root directory and add the following variables:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+```env
+# Authentication
+NEXTAUTH_SECRET=your-secret-key
+NEXTAUTH_URL=http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# Google OAuth
+GOOGLE_CLIENT_ID=your-google-client-id
+GOOGLE_CLIENT_SECRET=your-google-client-secret
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# OpenAI API
+OPENAI_API_KEY=your-openai-api-key
+```
+4. Run the Development Server
+bash
+Copy
+npm run dev
+Visit http://localhost:3000 to view the application.
 
-## Learn More
+Project Structure
+Beyonder/
+```bash
+├── app/
+│   ├── api/
+│   │   ├── auth/
+│   │   ├── chat/
+│   │   └── scrape/
+│   ├── components/
+│   ├── login/
+│   ├── dashboard/
+│   └── layout.tsx
+├── public/
+│   ├── chatbot.js
+│   └── images/
+├── styles/
+│   └── globals.css
+├── .env.local
+├── package.json
+├── README.md
+└── tailwind.config.js
+```
+## How It Works
+### 1. User Onboarding
+Users can register using their email/password or Google OAuth.
 
-To learn more about Next.js, take a look at the following resources:
+Email verification ensures secure signups.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 2. Organization Setup
+Users provide company details (name, website URL, description).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The platform auto-fetches meta descriptions from the website URL.
 
-## Deploy on Vercel
+The backend scrapes the client’s website to train the chatbot.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 3. Scraping Progress
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+They can click on any webpage to see the scraped data chunks.
+
+### 4. Chatbot Integration
+Users can test the chatbot on their website.
+
+The platform provides instructions for integrating the chatbot.
+
+Users can test the integration and view success/failure UIs.
+
+### 5. Chatbot Testing
+A floating button on the client’s website opens the chatbot.
+
+Users can interact with the chatbot in real-time.
+
+
+
+Thank you for using Beyonder! 🚀
+
+
